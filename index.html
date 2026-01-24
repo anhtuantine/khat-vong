@@ -92,10 +92,100 @@
       opacity: 0.7;
       margin: 36px 0 18px;
     }
+        h1 {
+            text-align: center;
+            color: #fb0d2c;
+        }
+
+        .score {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+	    color: #ebeb00;
+        }
+
+        .question-box {
+            background: #eef3f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0 ;
+	    div {
+        	font-size: 30px;
+        	margin-bottom: 20px;
+        	text-align: justify;
+	    }
+        }
+
+            .button_check {
+        	font-size: 30px;
+        	margin: 20px 0;
+	    }
+
+        .question-box h2 {
+            margin: 8px 0;
+        }
+
+        .question {
+            margin: 5px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .wrong {
+            color: red;
+        }
+	.row input {
+	   width: 45px;
+           height: 45px;
+	}
+	table {
+	 width: 100%;
+	}
+	tr {
+	 max-width: 100px;
+	}
+	input { 
+            font-size: 40px;
+            text-align: center;
+            text-transform: uppercase;
+	}
+	.red {
+	  color: red;
+    	  display: contents;
+	}
+	.p_space {
+	   letter-spacing: 5px;
+	   font-weight: 600;
+	}
+    </style>
   </style>
 </head>
 <body> 
-body
 <header>
   <!-- Logo Trường Sĩ quan Lục quân 2 -->
   <img src="logo-luc-quan-2.png" alt="Trường Sĩ quan Lục quân 2" />
@@ -115,21 +205,22 @@ body
     <h3>Bài 1: Xã luận</h3>
     <div class="meta">Định dạng: Audio (.m4a)</div>
     <audio controls preload="none">
-      <source src="xa-luan.mp3" type="audio/m4a" />
+      <source src="./xa-luan.mp3.m4a"  type="audio/mpeg"/>
+    </audio>
       Trình duyệt không hỗ trợ audio.
     </audio>
     <div class="qr-link">
-      QR trỏ thẳng tới file audio:<br />
-      <a href="xa-luan.mp3">xa-luan.mp3</a>
+      QR trỏ thẳng tới file audio:<br />	
+      <a href="xa-luan.mp3.m4a">xa-luan.mp3.m4a</a>
     </div>
-  </div>
+  </div> 
 
   <!-- BÀI 2 -->
   <div class="audio-card">
     <h3>Bài 2: Thanh niên làm theo lời Bác</h3>
     <div class="meta">Định dạng: Audio (.m4a)</div>
     <audio controls preload="none">
-      <source src="thanh-nien-lam-theo-loi-bac.mp3.m4a" type="audio/m4a" />
+	<source src="./thanh-nien-lam-theo-loi-bac.mp3.m4a" type="audio/mpeg" />
     </audio>
     <div class="qr-link">
       QR trỏ thẳng tới file audio:<br />
@@ -142,7 +233,7 @@ body
     <h3>Bài 3: Truyện ngắn</h3>
     <div class="meta">Định dạng: Audio (.m4a)</div>
     <audio controls preload="none">
-      <source src="truyen-ngan.mp3.m4a" type="audio/m4a" />
+      <source src="truyen-ngan.mp3.m4a" type="audio/mpeg" />
     </audio>
     <div class="qr-link">
       QR trỏ thẳng tới file audio:<br />
@@ -151,6 +242,162 @@ body
   </div>
 
 </div>
+
+<div class="container">
+    <h1>🎯 Trò Chơi Giải Ô Chữ</h1>
+
+    <div class="score">Điểm: <span id="score">0</span></div>
+
+    <!-- Bảng ô chữ -->
+    <div class="grid" id="grid">
+	<table>
+	 <tbody>
+	  <tr class="input-group input-group-1">
+	   <td class="row"></td>
+           <td class="row"></td>
+	   <td class="row"></td>
+           <td class="row"></td>
+	   <td class="row"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"></td>
+           <td class="row"></td>
+	  </tr>
+	  <tr class="input-group input-group-2">
+	   <td class="row"></td>
+           <td class="row"></td>
+	   <td class="row"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"></td>
+           <td class="row"></td>
+	  </tr>
+	  <tr class="input-group input-group-3">
+	   <td class="row"></td>
+           <td class="row"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	  </tr>
+	  <tr class="input-group input-group-4">
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+	   <td class="row"><input maxlength="1" onKeyup="next_input(this)"></td>
+           <td class="row"></td>
+	  </tr>
+	  <tr class="input-group input-group-5">
+	   <td class="row"></td>
+           <td class="row"></td>
+	   <td class="row"></td>
+           <td class="row"></td>
+	   <td class="row"></td>
+	   <td class="row"><input maxlength="1"></td>
+	   <td class="row"></td>
+           <td class="row"></td>
+	   <td class="row"></td>
+           <td class="row"></td>
+	   <td class="row"></td>
+	  </tr>
+	 </tbody>
+	</table>
+    </div>
+
+    <!-- Câu hỏi -->
+    <div class="question-box">
+        <h2>Câu hỏi</h2>
+        <div class="question_1">1. Nourish pure <p class="red">_e_rt</p>, forge bright mind, cherish ambitions.</div>
+        <div class="question_2">2. Our Army is loyal to the Party, <p class="red">d_ _o_ed</p> to the people, always ready to fight 
+and sacrefice for  the independence and freedom of the Fatherland and for socialism</div>
+        <div class="question_3">3. "The quality of training at the <p class="red">______</p> is the combat readiness of the unit</div>
+        <div class="question_4">4. What quality makes a soldier trustworthy and dependable in every assigned mission ?</div>
+        <div class="question_5">5. In the Four Nos policy, which number is "No siding with one country</div>
+	<div><p class="red p_space">A.1</p>  <p class="red p_space">B.2</p> <p class="red p_space">C.3</p>  <p class="red p_space">D.4</p></div>
+    </div>
+
+    <button class = "button_check" onclick="checkAnswer()">Kiểm Tra Kết Quả</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+  function next_input(el) {
+    if(el.value) {
+    const group = el.closest(".input-group"); // tìm group cha
+    const inputs = group.querySelectorAll("input"); // chỉ lấy input trong group
+
+    const i = [...inputs].indexOf(el);
+
+    inputs[i + 1]?.focus();
+   }
+  }
+
+    const answers = [
+        "HEART",   // Câu 1 - Hàng ngang 1
+        "DEVOTED",     // Câu 2 - Hàng ngang 3
+        "UNIVERSITY",
+	"RELIABILITY",
+ 	"2"
+    ];
+    function getAllGroupsData() {
+    const result = {};
+    document.querySelectorAll(".input-group").forEach(group => {
+    const classes = [...group.classList]
+    .filter(c => c !== "input-group");
+    const groupName = classes[0] || "default";
+    const values = [...group.querySelectorAll("input")]
+    .map(input => input.value);
+    const str = values.join("");
+    result[groupName] = str;
+    });
+
+    return result;
+	}
+    let datas;
+    function checkAnswer() {
+       let correctCount = 0;
+       datas = getAllGroupsData();
+       Object.values(datas).forEach((item,index) => {
+  	if (item.toLowerCase() === answers[index].toLowerCase()) {
+  	 correctCount++;
+	}
+       });
+      score = correctCount * 20;
+        document.getElementById("score").textContent = score;
+
+        const result = document.getElementById("result");
+
+        if (correctCount === answers.length) {
+            result.textContent = "🎉 Xuất sắc! Bạn đã trả lời đúng tất cả!";
+            result.className = "result correct";
+        } else {
+            result.textContent = `❌ Bạn đúng ${correctCount}/${answers.length} câu.`;
+            result.className = "result wrong";
+        }
+    }
+</script>
 
 <footer>
   © 2026 | Báo nói "Khát vọng" – Tiểu đoàn 10 – Trường Sĩ quan Lục quân 2
